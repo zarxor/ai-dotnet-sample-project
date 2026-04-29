@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrailForge Planner</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <nav class="topbar" aria-label="Primary">
+      <strong>TrailForge</strong>
+      <div>
+        <a href="#trips">Trips</a>
+        <a href="#packing">Packing</a>
+        <a href="#notes">Notes</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Nordic hiking planner</p>
+        <h1>Plan the routes, weather margins, and kit for your next trail week.</h1>
+        <p class="lede">Compare trip options, track packing readiness, and keep practical field notes in one compact planning board.</p>
+      </div>
+      <div class="hero-map" aria-label="Stylized mountain route map">
+        <span class="peak peak-one"></span>
+        <span class="peak peak-two"></span>
+        <span class="peak peak-three"></span>
+        <span class="route-line"></span>
+        <span class="route-dot dot-one"></span>
+        <span class="route-dot dot-two"></span>
+        <span class="route-dot dot-three"></span>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="stats-grid" aria-label="Planner summary">
+      <article>
+        <span id="trip-count">0</span>
+        <small>candidate trips</small>
+      </article>
+      <article>
+        <span id="distance-total">0 km</span>
+        <small>combined distance</small>
+      </article>
+      <article>
+        <span id="day-total">0</span>
+        <small>trail days</small>
+      </article>
+      <article>
+        <span id="packing-total">0 / 0</span>
+        <small>items packed</small>
+      </article>
+    </section>
+
+    <section id="trips" class="workspace">
+      <div>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Trip board</p>
+            <h2>Candidate routes</h2>
+          </div>
+          <select id="difficulty-filter" aria-label="Filter by difficulty">
+            <option value="all">All difficulties</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+        <div id="trip-cards" class="trip-grid" aria-live="polite"></div>
+      </div>
+
+      <aside class="side-panel">
+        <section id="packing" class="panel">
+          <p class="eyebrow">Readiness</p>
+          <h2>Packing list</h2>
+          <div id="packing-list" class="packing-list"></div>
+        </section>
+
+        <section id="notes" class="panel">
+          <p class="eyebrow">Field notes</p>
+          <h2>Planning notes</h2>
+          <form id="note-form">
+            <label for="note-category">Category</label>
+            <input id="note-category" name="category" autocomplete="off" value="Route">
+            <label for="note-text">Note</label>
+            <textarea id="note-text" name="text" rows="3">Check water access before the second camp.</textarea>
+            <button type="submit">Add note</button>
+          </form>
+          <div id="trail-notes" class="note-list" aria-live="polite"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
